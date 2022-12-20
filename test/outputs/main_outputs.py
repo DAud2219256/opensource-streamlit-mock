@@ -1,6 +1,7 @@
-import streamlit as st
 import bokeh.plotting
 import pandas as pd
+
+import streamlit as st
 
 
 def main():

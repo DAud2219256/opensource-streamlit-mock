@@ -1,7 +1,6 @@
 import impl.mock
 import impl.utils
 
-
 _mock = impl.mock.Mock()
 session_state = _mock.session_state
 
@@ -61,7 +60,9 @@ warning = _mock.warning
 write = _mock.write
 
 
-def experimental_memo(func=None, *, persist=None, show_spinner=True, suppress_st_warning=False, max_entries=None, ttl=None):
+def experimental_memo(
+    func=None, *, persist=None, show_spinner=True, suppress_st_warning=False, max_entries=None, ttl=None
+):
     def inner(f):
         def wrapper(*args, **kwargs):
             return f(*args, **kwargs)

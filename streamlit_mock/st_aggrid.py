@@ -51,7 +51,14 @@ class GridOptionsBuilder:
         return GridOptionsBuilder()
 
     def configure_default_column(
-        self, min_column_width=5, resizable=True, filterable=True, sorteable=True, editable=False, groupable=False, **other_default_column_properties
+        self,
+        min_column_width=5,
+        resizable=True,
+        filterable=True,
+        sorteable=True,
+        editable=False,
+        groupable=False,
+        **other_default_column_properties
     ):
         pass
 

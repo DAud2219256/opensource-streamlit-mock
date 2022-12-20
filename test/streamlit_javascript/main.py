@@ -1,11 +1,11 @@
-import streamlit as st
 from streamlit_javascript import st_javascript
-import datetime
+
+import streamlit as st
 
 
 def main():
     st.title("streamlit javascript")
-    js = """[window.parent.innerHeight, window.parent.document.querySelector('[title="streamlit_javascript.streamlit_javascript"]').getBoundingClientRect()];"""
+    js = """[window.parent.innerHeight, window.parent.document.querySelector('[title="streamlit_javascript.streamlit_javascript"]').getBoundingClientRect()];"""  # noqa: E501
     return_value = st_javascript(js, key="abc")
 
     st.markdown(f"Return value was: {return_value}")

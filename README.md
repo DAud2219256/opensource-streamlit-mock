@@ -11,17 +11,17 @@ This package "mocks" most streamlit class to allow "pytest" to be used for testi
 Goals:
 
 * Allow tests to be written using pytest
-  
+
 * Tests should run quickly so that multiple edge cases and variants can be tested
-  
+
 * Tests should be concise and easy to write
 
 Non-Goals
 
 * Testing streamlit itself (the package removes all dependnecies on the real streamlitk)
-  
+
 * Testing that the app uses Streamlit correctly (the package fakes input and records outputs)
-  
+
 * To be as complete as an end-to-end Selenium test (Streamlit/web server are out of the loop)
 
 ## Limitations
@@ -64,13 +64,13 @@ See the examples, but the steps are-.
 2. Create a "test_xxx" function to be executed by "pytest"
 
 3. Set the inputs in `st.session_state`, See the "form_calculator" example to see how form_submit_button's are handled. These do not have a "key".
-   
+
 4. Run the streamlit application and get the "results".
 
 5. "results" is a dictionary of lists where the interactions are recorded
 
 6. Assert that the results are as expected. I have found it useful to temporarily print the results during test development to see what is expected/missing and then add asserts to confirm this behavior on future runs. Perhaps this should be added as a pytest option
-   
+
 ## Tests requiring multiple "run"s
 
 Some tests require that the streamlit application be run more than once to create intermediate results in `session_state`.

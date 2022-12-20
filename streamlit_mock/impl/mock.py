@@ -1,5 +1,6 @@
-import addict
 import contextlib
+
+import addict
 
 
 class DictNoDefault(addict.Dict):
@@ -83,9 +84,6 @@ class Mock(object):
             self.session_state[key] = False
         return value
 
-    def altair_chart(self, altair_chart, use_container_width=False):
-        self._results.altair_chart.append(altair_chart)
-
     def area_chart(self, data=None, use_container_width=False):
         self._results.area_chart.append(data)
 
@@ -111,7 +109,9 @@ class Mock(object):
     def camera_input(self, label, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False):
         return self._handle_changeable(label, key, None, on_change, args, kwargs)
 
-    def checkbox(self, label, value=False, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False):
+    def checkbox(
+        self, label, value=False, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False
+    ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
     def caption(self, body, unsafe_allow_html=False):
@@ -120,7 +120,9 @@ class Mock(object):
     def code(self, body, language="python"):
         self._results.code.append(body)
 
-    def color_picker(self, label, value=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False):
+    def color_picker(
+        self, label, value=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False
+    ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
     def columns(self, spec, gap="small"):
@@ -133,10 +135,36 @@ class Mock(object):
     def dataframe(self, data=None, width=None, height=None):
         self._results.dataframe.append(data)
 
-    def date_input(self, label, value=None, min_value=None, max_value=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False):
+    def date_input(
+        self,
+        label,
+        value=None,
+        min_value=None,
+        max_value=None,
+        key=None,
+        help=None,
+        on_change=None,
+        args=None,
+        kwargs=None,
+        *,
+        disabled=False,
+    ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
-    def download_button(self, label, data, file_name=None, mime=None, key=None, help=None, on_click=None, args=None, kwargs=None, *, disabled=False):
+    def download_button(
+        self,
+        label,
+        data,
+        file_name=None,
+        mime=None,
+        key=None,
+        help=None,
+        on_click=None,
+        args=None,
+        kwargs=None,
+        *,
+        disabled=False,
+    ):
         self._results.download.append({"data": data, "file_name": file_name, "mime": mime, "key": key})
         return self._handle_clickable(label, key, on_click, args, kwargs)
 
@@ -150,7 +178,19 @@ class Mock(object):
         self._results.widget_labels.append(label)
         return self
 
-    def file_uploader(self, label, type=None, accept_multiple_files=False, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False):
+    def file_uploader(
+        self,
+        label,
+        type=None,
+        accept_multiple_files=False,
+        key=None,
+        help=None,
+        on_change=None,
+        args=None,
+        kwargs=None,
+        *,
+        disabled=False,
+    ):
         return self._handle_changeable(label, key, None, on_change, args, kwargs)
 
     def form(self, name):
@@ -174,7 +214,9 @@ class Mock(object):
     def header(self, body, anchor=None):
         self._results.header.append(body)
 
-    def image(self, image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto"):
+    def image(
+        self, image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto"
+    ):
         self._results.image.append(image)
 
     def info(self, body):
@@ -242,7 +284,19 @@ class Mock(object):
         self._results.pyplot.append(fig)
 
     def radio(
-        self, label, options, index=0, format_func=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False, horizontal=False
+        self,
+        label,
+        options,
+        index=0,
+        format_func=None,
+        key=None,
+        help=None,
+        on_change=None,
+        args=None,
+        kwargs=None,
+        *,
+        disabled=False,
+        horizontal=False,
     ):
         return self._handle_changeable(label, key, list(options)[index], on_change, args, kwargs)
 
@@ -262,7 +316,20 @@ class Mock(object):
     ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
-    def selectbox(self, label, options, index=0, format_func=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False):
+    def selectbox(
+        self,
+        label,
+        options,
+        index=0,
+        format_func=None,
+        key=None,
+        help=None,
+        on_change=None,
+        args=None,
+        kwargs=None,
+        *,
+        disabled=False,
+    ):
         return self._handle_changeable(label, key, list(options)[index], on_change, args, kwargs)
 
     def slider(
@@ -289,8 +356,8 @@ class Mock(object):
         resource = {}
         try:
             yield resource
-        except:
-            pass
+        except:  # noqa: E722
+            pass  # TODO: Should this be a bare except?
 
     def success(self, body):
         self._results.success.append(body)
@@ -308,7 +375,19 @@ class Mock(object):
         self._results.text.append(body)
 
     def text_area(
-        self, label, value="", height=None, max_chars=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, placeholder=None, disabled=False
+        self,
+        label,
+        value="",
+        height=None,
+        max_chars=None,
+        key=None,
+        help=None,
+        on_change=None,
+        args=None,
+        kwargs=None,
+        *,
+        placeholder=None,
+        disabled=False,
     ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
@@ -330,7 +409,9 @@ class Mock(object):
     ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
-    def time_input(self, label, value=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False):
+    def time_input(
+        self, label, value=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False
+    ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
     def title(self, body, anchor=None):

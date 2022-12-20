@@ -4,6 +4,7 @@ requires = ["hatchling"]
 
 [project]
 authors = [
+  {name = "Douglas Bunker", email = "dbunker@seagen.com"},
   {name = "Andrew Schofield", email = "andrew@schofield.ch"},
 ]
 classifiers = [
@@ -24,5 +25,5 @@ requires-python = ">=3.8"
 version = "0.0.1"
 
 [project.urls]
-repository = "https://github.com/acschofield/streamlit_mock"
+repository = "https://github.com/Seagen/opensource-streamlit-mock"
 

@@ -1,14 +1,13 @@
-import sys
-import pathlib
 import importlib
-import re
 import io
-import os
+import pathlib
+import sys
+from typing import Union
+
+import impl.utils
+import streamlit as st
 
 sys.path.insert(0, str(pathlib.Path(__file__).parent.resolve()))
-import streamlit as st
-import impl.utils
-
 
 imported = {}
 
@@ -32,9 +31,11 @@ class StreamlitMock:
     def get_session_state(self):
         return self.session_state
 
-    def run(self, python_main, args=[]):
+    def run(self, python_main: Union[str, pathlib.Path], args=[]) -> dict:
+        if isinstance(python_main, str):
+            python_main = pathlib.Path(python_main)
         sys.argv = [python_main] + args
-        module_name = re.sub(r"\.py$", "", python_main).replace("/", ".")
+        module_name = ".".join(python_main.parts[:-1] + (python_main.stem,))
         global imported
         while True:
             try:
@@ -50,7 +51,7 @@ class StreamlitMock:
 
         return self.results
 
-    def get_results(self):
+    def get_results(self) -> dict:
         return self.results
 
     def set_uploaded_file(self, key, upload_filename, test_filename):

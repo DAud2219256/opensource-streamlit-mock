@@ -86,6 +86,10 @@ def set_page_config(page_title=None, page_icon=None, layout="centered", initial_
     pass
 
 
+def set_option(*args):
+    pass
+
+
 def experimental_get_query_params():
     return {}
 

@@ -46,13 +46,13 @@ version = "0.0.1"
 repository = "https://github.com/Seagen/opensource-streamlit-mock"
 
 [tool.black]
-SRC = ["streamlit_mock", "tests"]
+SRC = ["src", "tests"]
 line-length = 120
 
 [tool.pytest.ini_options]
-pythonpath = ["streamlit_mock"]
+pythonpath = ["src"]
 testpaths = ["tests"]
 
 [tool.isort]
 profile = "black"
-src_paths = ["streamlit_mock", "tests"]
+src_paths = ["src", "tests"]

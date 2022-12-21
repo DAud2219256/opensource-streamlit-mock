@@ -1,6 +1,6 @@
-from streamlit_javascript import st_javascript
-
 import streamlit as st
+
+from streamlit_javascript import st_javascript
 
 
 def main():

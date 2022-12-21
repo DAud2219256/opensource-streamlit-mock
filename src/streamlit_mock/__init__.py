@@ -34,7 +34,7 @@ class StreamlitMock:
     def run(self, python_main: Union[str, pathlib.Path], args=[]) -> dict:
         if isinstance(python_main, str):
             python_main = pathlib.Path(python_main)
-        sys.argv = [python_main] + args
+        sys.argv = [python_main.name] + args
         module_name = ".".join(python_main.parts[:-1] + (python_main.stem,))
         global imported
         while True:

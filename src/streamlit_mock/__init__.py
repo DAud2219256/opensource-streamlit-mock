@@ -4,10 +4,10 @@ import pathlib
 import sys
 from typing import Union
 
-import impl.utils
-import streamlit as st
-
 sys.path.insert(0, str(pathlib.Path(__file__).parent.resolve()))
+
+import impl.utils  # noqa: E402
+import streamlit as st  # noqa: E402
 
 imported = {}
 

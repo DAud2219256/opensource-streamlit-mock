@@ -3,12 +3,12 @@ name: Upload to Artifactory
 on:
   push:
     paths:
-      - src/**
       - .github/workflows/build-deploy.yml
   release:
 
 jobs:
   deploy:
+    name: Build and Upload
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

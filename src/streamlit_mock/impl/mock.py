@@ -193,8 +193,13 @@ class Mock(object):
     ):
         return self._handle_changeable(label, key, None, on_change, args, kwargs)
 
-    def form(self, name):
+    def form(
+        self,
+        name: str,
+        clear_on_submit: bool,
+    ):
         self._results.form.append(name)
+        self._results.form.append(clear_on_submit)
         return self
 
     def form_submit_button(

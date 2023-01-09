@@ -199,7 +199,6 @@ class Mock(object):
         clear_on_submit: bool,
     ):
         self._results.form.append(name)
-        self._results.form.append(clear_on_submit)
         return self
 
     def form_submit_button(

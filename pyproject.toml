@@ -11,7 +11,8 @@ requires = ["poetry-core>=1.0.0"]
 
 [tool.poetry.dependencies]
 addict = "^2.4.0"
-python = "^3.7"
+python = "^3.8"
+streamlit = "<1.16"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.6.0"
@@ -19,6 +20,7 @@ isort = "^5.10.1"
 pre-commit = "^2.20.0"
 pytest = "^7.1.2"
 toml = "^0.10.2"
+bokeh = "^3.0.3"
 
 [project]
 authors = [
@@ -39,7 +41,7 @@ description = "Mocks the stremlit interfaces for unit testing"
 license = {file = "LICENSE"}
 name = "streamlit_mock"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.8"
 version = "0.0.1"
 
 [project.urls]

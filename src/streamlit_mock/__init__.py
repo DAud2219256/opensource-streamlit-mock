@@ -66,3 +66,10 @@ class StreamlitMock:
             self.session_state[key] = UploadedFile(upload_filename)
         elif isinstance(upload_filename, list):
             self.session_state[key] = [UploadedFile(file) for file in upload_filename]
+
+    def submit_form(
+        self,
+        form_key: str,
+    ):
+        submit_key = f"FormSubmitter:{form_key}-Submit"
+        self.session_state[submit_key] = True

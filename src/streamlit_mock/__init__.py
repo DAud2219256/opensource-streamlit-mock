@@ -17,7 +17,7 @@ class UploadedFile(io.BytesIO):
         self,
         upload_filename: Path,
     ):
-        self.name = str(upload_filename)
+        self.name = upload_filename.name
         with open(upload_filename, mode="rb") as f:
             content = f.read()
         super(UploadedFile, self).__init__(content)

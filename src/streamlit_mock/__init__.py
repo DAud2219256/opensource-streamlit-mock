@@ -1,10 +1,10 @@
 import importlib
 import io
-import pathlib
 import sys
+from pathlib import Path
 from typing import Union
 
-sys.path.insert(0, str(pathlib.Path(__file__).parent.resolve()))
+sys.path.insert(0, str(Path(__file__).parent.resolve()))
 
 import impl.utils  # noqa: E402
 import streamlit as st  # noqa: E402
@@ -13,10 +13,12 @@ imported = {}
 
 
 class UploadedFile(io.BytesIO):
-    def __init__(self, upload_filename, test_filename):
-        path = pathlib.Path(test_filename).parent.resolve() / pathlib.Path(upload_filename)
-        self.name = str(path)
-        with open(path, mode="rb") as f:
+    def __init__(
+        self,
+        upload_filename: Path,
+    ):
+        self.name = str(upload_filename)
+        with open(upload_filename, mode="rb") as f:
             content = f.read()
         super(UploadedFile, self).__init__(content)
         pass
@@ -31,9 +33,9 @@ class StreamlitMock:
     def get_session_state(self):
         return self.session_state
 
-    def run(self, python_main: Union[str, pathlib.Path], args=[]) -> dict:
+    def run(self, python_main: Union[str, Path], args=[]) -> dict:
         if isinstance(python_main, str):
-            python_main = pathlib.Path(python_main)
+            python_main = Path(python_main)
         sys.argv = [python_main.name] + args
         module_name = ".".join(python_main.parts[:-1] + (python_main.stem,))
         global imported
@@ -54,5 +56,13 @@ class StreamlitMock:
     def get_results(self) -> dict:
         return self.results
 
-    def set_uploaded_file(self, key, upload_filename, test_filename):
-        self.session_state[key] = UploadedFile(upload_filename, test_filename="./test.py")
+    def set_uploaded_file(
+        self,
+        key: str,
+        upload_filename: Union[Path, list[Path]],
+    ):
+        # TODO: type validation
+        if isinstance(upload_filename, Path):
+            self.session_state[key] = UploadedFile(upload_filename)
+        elif isinstance(upload_filename, list):
+            self.session_state[key] = [UploadedFile(file) for file in upload_filename]

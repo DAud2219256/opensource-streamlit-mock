@@ -3,7 +3,7 @@ authors = ["Douglas Bunker <dbunker@seagen.com>", "Andrew Schofield <andrew@scho
 description = "Mocks the streamlit interfaces for unit testing"
 license = "MIT"
 name = "streamlit_mock"
-version = "0.0.3"
+version = "0.0.4"
 
 [build-system]
 build-backend = "poetry.core.masonry.api"
@@ -42,7 +42,7 @@ license = {file = "LICENSE"}
 name = "streamlit_mock"
 readme = "README.md"
 requires-python = ">=3.8"
-version = "0.0.3"
+version = "0.0.4"
 
 [project.urls]
 repository = "https://github.com/Seagen/opensource-streamlit-mock"

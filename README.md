@@ -7,7 +7,7 @@ Mock of streamlit to allow unit tests
 In lieu of a PyPi repository that everyone can use, you can install the library directly from github:
 
 ```code
-poetry add "streamlit-mock @ git+https://github.com/Seagen/opensource-streamlit-mock@v0.0.2"
+poetry add "streamlit-mock @ git+https://github.com/Seagen/opensource-streamlit-mock@v0.0.4"
 ```
 
 ## Background

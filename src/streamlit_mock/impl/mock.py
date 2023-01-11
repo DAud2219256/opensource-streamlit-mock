@@ -196,7 +196,7 @@ class Mock(object):
     def form(
         self,
         name: str,
-        clear_on_submit: bool,
+        clear_on_submit: bool = False,
     ):
         self._results.form.append(name)
         return self

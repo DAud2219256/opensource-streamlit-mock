@@ -37,7 +37,7 @@ class StreamlitMock:
         if isinstance(python_main, str):
             python_main = Path(python_main)
         sys.argv = [python_main.name] + args
-        module_name = ".".join(python_main.parts[:-1] + (python_main.stem,))
+        module_name = ".".join(python_main.parent.parts + (python_main.stem,))
         global imported
         while True:
             try:

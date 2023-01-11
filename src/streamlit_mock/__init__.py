@@ -70,7 +70,7 @@ class StreamlitMock:
     def submit_form(
         self,
         form_key: str,
-        button_label: str,
+        button_label: str = "Submit",
     ):
         submit_key = f"FormSubmitter:{form_key}-{button_label}"
         self.session_state[submit_key] = True

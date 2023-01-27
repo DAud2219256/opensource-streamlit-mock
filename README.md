@@ -7,12 +7,12 @@ Mock of streamlit to allow unit tests
 In lieu of a PyPi repository that everyone can use, you can install the library directly from github:
 
 ```code
-poetry add "streamlit-mock @ git+https://github.com/Seagen/opensource-streamlit-mock@v0.0.7"
+poetry add "streamlit-mock @ git+https://github.com/Seagen/opensource-streamlit-mock@v0.0.8"
 ```
 
 ## Background
 
-Our simple streamlit applciation calling a REST API backend grew over time, became not so simple and needed a test suite.
+Our simple streamlit application calling a REST API backend grew over time, became not so simple and needed a test suite.
 We wrote some Selenium tests, but these are tricky to get right and run relatively slowly.
 This package "mocks" most streamlit class to allow "pytest" to be used for testing.
 
@@ -26,7 +26,7 @@ Goals:
 
 Non-Goals
 
-* Testing streamlit itself (the package removes all dependnecies on the real streamlitk)
+* Testing streamlit itself (the package removes all dependnecies on the real streamlit)
 
 * Testing that the app uses Streamlit correctly (the package fakes input and records outputs)
 
@@ -38,7 +38,7 @@ Non-Goals
 
 * The "mock" code could probably be simplified using Python magic to remove some of the boilerplate
 
-* If you want to mock the values of input elements, they should all have a "key" value. This may require some application changes but it is not obtrusive and is probably good preactice anyway.
+* If you want to mock the values of input elements, they should all have a "key" value. This may require some application changes but it is not obtrusive and is probably good practice anyway.
 
 ## Usage
 
@@ -83,7 +83,7 @@ See the examples, but the steps are-.
 
 Some tests require that the streamlit application be run more than once to create intermediate results in `session_state`.
 
-In this case, you can follow the following sps (assuminh two "run"s)
+In this case, you can follow the following sps (assuming two "run"s)
 
 1. Create a StreamlitMock and get it's session_state in variable `session_state_1`
 2. Set up the input values in `session_state_1`

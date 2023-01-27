@@ -171,7 +171,7 @@ class Mock(object):
     def empty(self):
         return self
 
-    def error(self, body, icon):
+    def error(self, body, icon=None):
         self._results.error.append({"body": body, "icon": icon})
 
     def expander(self, label, expanded=False):
@@ -223,7 +223,7 @@ class Mock(object):
     ):
         self._results.image.append(image)
 
-    def info(self, body, icon):
+    def info(self, body, icon=None):
         self._results.info.append({"body": body, "icon": icon})
 
     def json(self, body, expanded=True):
@@ -363,7 +363,7 @@ class Mock(object):
         except:  # noqa: E722
             pass  # TODO: Should this be a bare except?
 
-    def success(self, body, icon):
+    def success(self, body, icon=None):
         self._results.success.append({"body": body, "icon": icon})
 
     def subheader(self, body, anchor=None):
@@ -424,7 +424,7 @@ class Mock(object):
     def vega_lite_chart(self, data=None, spec=None, use_container_width=False, **kwargs):
         self._results.vega_lite_chart.append(data)
 
-    def warning(self, body, icon):
+    def warning(self, body, icon=None):
         self._results.warning.append({"body": body, "icon": icon})
 
     def write(self, *args, **kwargs):

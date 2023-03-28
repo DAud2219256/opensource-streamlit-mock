@@ -14,7 +14,6 @@ class Mock(object):
         self._results = DictNoDefault()
         self._results.aggrid = []
         self._results.altair_chart = []
-        self._results.altair_chart = []
         self._results.area_chart = []
         self._results.bar_chart = []
         self._results.bokeh_chart = []

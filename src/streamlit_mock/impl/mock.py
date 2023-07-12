@@ -149,6 +149,9 @@ class Mock(object):
         disabled=False,
     ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
+    
+    def divider(self):
+        pass
 
     def download_button(
         self,

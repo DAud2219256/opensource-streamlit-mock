@@ -18,6 +18,7 @@ columns = _mock.columns
 container = _mock.container
 dataframe = _mock.dataframe
 date_input = _mock.date_input
+divider = _mock.divider
 download_button = _mock.download_button
 empty = _mock.empty
 error = _mock.error

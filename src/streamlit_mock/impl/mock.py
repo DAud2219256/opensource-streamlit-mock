@@ -131,7 +131,16 @@ class Mock(object):
     def container(self):
         return self
 
-    def dataframe(self, data=None, width=None, height=None):
+    def dataframe(
+        self,
+        data=None,
+        width=None,
+        height=None,
+        use_container_width=None,
+        hide_index=None,
+        column_order=None,
+        column_config=None,
+    ):
         self._results.dataframe.append(data)
 
     def date_input(
@@ -149,7 +158,7 @@ class Mock(object):
         disabled=False,
     ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
-    
+
     def divider(self):
         pass
 

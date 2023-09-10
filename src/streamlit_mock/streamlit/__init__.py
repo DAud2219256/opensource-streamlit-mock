@@ -56,6 +56,7 @@ text_area = _mock.text_area
 text_input = _mock.text_input
 time_input = _mock.time_input
 title = _mock.title
+toggle = _mock.toggle
 vega_lite_chart = _mock.vega_lite_chart
 warning = _mock.warning
 write = _mock.write

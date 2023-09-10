@@ -19,6 +19,7 @@ def main():
     st.write(st.file_uploader("File uploader", key="file_uploader"))
     st.write(st.camera_input("Camera input", key="camera_input"))
     st.write(st.color_picker("Color picker", key="color_picker"))
+    st.write(st.toggle("Toggle", key="toggle"))
 
 
 main()

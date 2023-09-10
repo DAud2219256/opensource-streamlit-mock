@@ -23,6 +23,7 @@ def test_input_widgets():
     session_state.file_uploader = None
     session_state.camera_input = None
     session_state.color_picker = "#123456"
+    session_state.toggle = "True"
 
     sm.run("main_inputs.py")
 
@@ -47,6 +48,7 @@ def test_input_widgets():
         "File uploader",
         "Camera input",
         "Color picker",
+        "Toggle"
     ]
 
     assert results.write == [
@@ -66,4 +68,5 @@ def test_input_widgets():
         None,
         None,
         "#123456",
+        "True"
     ]

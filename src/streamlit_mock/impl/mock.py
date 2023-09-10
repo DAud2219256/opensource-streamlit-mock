@@ -432,6 +432,21 @@ class Mock(object):
     def title(self, body, anchor=None):
         self._results.title.append(body)
 
+    def toggle(
+        self,
+        label,
+        value=False,
+        key=None,
+        help=None,
+        on_change=None,
+        args=None,
+        kwargs=None,
+        *,
+        disabled=False,
+        label_visibility="visible",
+    ):
+        return self._handle_changeable(label, key, value, on_change, args, kwargs)
+
     def vega_lite_chart(self, data=None, spec=None, use_container_width=False, **kwargs):
         self._results.vega_lite_chart.append(data)
 

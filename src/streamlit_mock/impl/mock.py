@@ -102,6 +102,7 @@ class Mock(object):
         kwargs=None,
         *,
         disabled=False,
+        use_container_width=False
     ):
         return self._handle_clickable(label, key, on_click, args, kwargs)
 
@@ -175,6 +176,7 @@ class Mock(object):
         kwargs=None,
         *,
         disabled=False,
+        use_container_width=False
     ):
         self._results.download.append({"data": data, "file_name": file_name, "mime": mime, "key": key})
         return self._handle_clickable(label, key, on_click, args, kwargs)
@@ -219,6 +221,9 @@ class Mock(object):
         on_click=None,
         args=None,
         kwargs=None,
+        type="primary",
+        disabled=False,
+        use_container_width=False
     ):
         key = "FormSubmitter:" + self._results.form[-1] + "-" + label
         return self._handle_clickable(label, key, on_click, args, kwargs)

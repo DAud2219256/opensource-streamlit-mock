@@ -102,15 +102,36 @@ class Mock(object):
         kwargs=None,
         *,
         disabled=False,
-        use_container_width=False
+        use_container_width=False,
     ):
         return self._handle_clickable(label, key, on_click, args, kwargs)
 
-    def camera_input(self, label, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False):
+    def camera_input(
+        self,
+        label,
+        key=None,
+        help=None,
+        on_change=None,
+        args=None,
+        kwargs=None,
+        *,
+        disabled=False,
+        label_visibility="visible",
+    ):
         return self._handle_changeable(label, key, None, on_change, args, kwargs)
 
     def checkbox(
-        self, label, value=False, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False
+        self,
+        label,
+        value=False,
+        key=None,
+        help=None,
+        on_change=None,
+        args=None,
+        kwargs=None,
+        *,
+        disabled=False,
+        label_visibility="visible",
     ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
@@ -121,7 +142,17 @@ class Mock(object):
         self._results.code.append(body)
 
     def color_picker(
-        self, label, value=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False
+        self,
+        label,
+        value=None,
+        key=None,
+        help=None,
+        on_change=None,
+        args=None,
+        kwargs=None,
+        *,
+        disabled=False,
+        label_visibility="visible",
     ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
@@ -157,6 +188,7 @@ class Mock(object):
         kwargs=None,
         *,
         disabled=False,
+        label_visibility="visible",
     ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
@@ -176,7 +208,7 @@ class Mock(object):
         kwargs=None,
         *,
         disabled=False,
-        use_container_width=False
+        use_container_width=False,
     ):
         self._results.download.append({"data": data, "file_name": file_name, "mime": mime, "key": key})
         return self._handle_clickable(label, key, on_click, args, kwargs)
@@ -203,6 +235,7 @@ class Mock(object):
         kwargs=None,
         *,
         disabled=False,
+        label_visibility="visible",
     ):
         return self._handle_changeable(label, key, None, on_change, args, kwargs)
 
@@ -223,7 +256,7 @@ class Mock(object):
         kwargs=None,
         type="primary",
         disabled=False,
-        use_container_width=False
+        use_container_width=False,
     ):
         key = "FormSubmitter:" + self._results.form[-1] + "-" + label
         return self._handle_clickable(label, key, on_click, args, kwargs)
@@ -273,6 +306,7 @@ class Mock(object):
         kwargs=None,
         *,
         disabled=False,
+        label_visibility="visible",
     ):
         return self._handle_changeable(label, key, default, on_change, args, kwargs)
 
@@ -291,6 +325,7 @@ class Mock(object):
         kwargs=None,
         *,
         disabled=False,
+        label_visibility="visible",
     ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
@@ -317,6 +352,7 @@ class Mock(object):
         *,
         disabled=False,
         horizontal=False,
+        label_visibility="visible",
     ):
         return self._handle_changeable(label, key, list(options)[index], on_change, args, kwargs)
 
@@ -333,6 +369,7 @@ class Mock(object):
         kwargs=None,
         *,
         disabled=False,
+        label_visibility="visible",
     ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
@@ -349,6 +386,7 @@ class Mock(object):
         kwargs=None,
         *,
         disabled=False,
+        label_visibility="visible",
     ):
         return self._handle_changeable(label, key, list(options)[index], on_change, args, kwargs)
 
@@ -367,6 +405,7 @@ class Mock(object):
         kwargs=None,
         *,
         disabled=False,
+        label_visibility="visible",
     ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
@@ -408,6 +447,7 @@ class Mock(object):
         *,
         placeholder=None,
         disabled=False,
+        label_visibility="visible",
     ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
@@ -426,11 +466,22 @@ class Mock(object):
         *,
         placeholder=None,
         disabled=False,
+        label_visibility="visible",
     ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 
     def time_input(
-        self, label, value=None, key=None, help=None, on_change=None, args=None, kwargs=None, *, disabled=False
+        self,
+        label,
+        value=None,
+        key=None,
+        help=None,
+        on_change=None,
+        args=None,
+        kwargs=None,
+        *,
+        disabled=False,
+        label_visibility="visible",
     ):
         return self._handle_changeable(label, key, value, on_change, args, kwargs)
 

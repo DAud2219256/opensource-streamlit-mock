@@ -241,10 +241,10 @@ class Mock(object):
 
     def form(
         self,
-        name: str,
+        key: str,
         clear_on_submit: bool = False,
     ):
-        self._results.form.append(name)
+        self._results.form.append(key)
         return self
 
     def form_submit_button(

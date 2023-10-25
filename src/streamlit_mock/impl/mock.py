@@ -249,7 +249,7 @@ class Mock(object):
 
     def form_submit_button(
         self,
-        label,
+        label: str = "Submit",
         help=None,
         on_click=None,
         args=None,

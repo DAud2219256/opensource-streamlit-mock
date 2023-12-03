@@ -160,7 +160,7 @@ class Mock(object):
         count = spec if isinstance(spec, int) else len(spec)
         return [self] * count
 
-    def container(self):
+    def container(self, border: bool | None = None):
         return self
 
     def dataframe(
